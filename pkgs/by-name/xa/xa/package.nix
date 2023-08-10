@@ -63,6 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
       - block structure for label scoping
     '';
     mainProgram = "xa";
+    categories = with lib.categories; [ assembler ];
     license = lib.licenses.gpl2Plus;
     maintainers = [ ];
     platforms = lib.platforms.unix;
