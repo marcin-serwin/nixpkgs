@@ -62,6 +62,7 @@ let
       # packaging
       customisation = callLibs ./customisation.nix;
       derivations = callLibs ./derivations.nix;
+      categories = callLibs ./categories.nix;
       maintainers = import ../maintainers/maintainer-list.nix;
       teams = callLibs ../maintainers/computed-team-list.nix;
       meta = callLibs ./meta.nix;
