@@ -353,6 +353,7 @@ let
       sourceProvenance = listOf attrs;
       maintainers = listOf (attrsOf any); # TODO use the maintainer type from lib/tests/maintainer-module.nix
       teams = listOf (attrsOf any); # TODO similar to maintainers, use a teams type
+      categories = listOf attrs;
       priority = int;
       pkgConfigModules = listOf str;
       inherit platforms;
