@@ -795,6 +795,14 @@ in
               defaultText = literalExpression "config.users.users.\${name}.group";
               default = cfg.users.${name}.group;
             };
+            options.home = mkOption {
+              type = types.passwdEntry types.path;
+              description = ''
+                The user's home directory in initrd.
+              '';
+              default = cfg.users.${name}.home;
+              defaultText = literalExpression "config.users.users.\${name}.home";
+            };
             options.shell = mkOption {
               type = types.passwdEntry types.path;
               description = ''
@@ -1014,12 +1022,13 @@ in
                 {
                   uid,
                   group,
+                  home,
                   shell,
                 }:
                 let
                   g = config.boot.initrd.systemd.groups.${group};
                 in
-                "${n}:x:${toString uid}:${toString g.gid}::/var/empty:${shell}"
+                "${n}:x:${toString uid}:${toString g.gid}::${home}:${shell}"
               ) config.boot.initrd.systemd.users
             )}
           '';
